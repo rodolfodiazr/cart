@@ -8,16 +8,16 @@ import (
 )
 
 func main() {
-	cart := models.Cart{}
 	product := models.Product{
 		ID:    uuid.Must(uuid.NewV6()).String(),
 		Name:  "Keyboard",
 		Price: 20,
 	}
 
-	// Add some items
-	cart.AddItem(product, 1)
-	cart.AddItem(product, 2)
+	cart := models.NewCartBuilder().
+		AddItem(product, 1).
+		AddItem(product, 2).
+		Build()
 
 	fmt.Print("CART:\n\n")
 	for i, item := range cart.Items {
