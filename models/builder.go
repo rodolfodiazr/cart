@@ -11,6 +11,10 @@ func NewCartBuilder() *CartBuilder {
 }
 
 func (b *CartBuilder) AddItem(product Product, quantity int) *CartBuilder {
+	if quantity <= 0 {
+		return b
+	}
+
 	b.cart.AddItem(product, quantity)
 	return b
 }
