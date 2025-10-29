@@ -1,5 +1,7 @@
 package models
 
+// Cart represents a shopping cart that holds a collection of items.
+// It provides methods to add products and calculate the total cost of all items.
 type Cart struct {
 	Items []CartItem
 }
